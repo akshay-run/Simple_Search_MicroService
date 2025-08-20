@@ -1,0 +1,63 @@
+openapi: 3.0.3
+info:
+  title: Patient Search Service
+  description: Simple service to search patients by name, anomaly, or visit date.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /patients/search:
+    get:
+      summary: Search patients by first name
+      parameters:
+        - in: query
+          name: first_name
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        patient_name:
+                          type: string
+                        visit_date:
+                          type: string
+                        impression:
+                          type: string
+                        patient_id:
+                          type: string
+  /patients/anomaly:
+    get:
+      summary: Search patients by impression/anomaly text
+      parameters:
+        - in: query
+          name: anomaly
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+  /patients/visit-date:
+    get:
+      summary: Search patients by visit date (dd-MM-yyyy)
+      parameters:
+        - in: query
+          name: date
+          required: true
+          schema:
+            type: string
+            example: '12-08-2025'
+      responses:
+        '200':
+          description: OK
