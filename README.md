@@ -106,6 +106,5 @@ npm test
 
 ---
 
-agger UI (/api-docs)
 
-Automated Testing → Jest + Supertest (unit tests)
+
