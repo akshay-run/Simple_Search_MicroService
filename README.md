@@ -65,7 +65,25 @@ npm install
 npm start
 ```
 
-### 4️⃣ Run tests
+### 4️⃣ Run with Docker
+
+Build the Docker image:
+```cmd
+docker build -t simple_search_microservice .
+```
+
+Run the Docker container:
+```cmd
+docker run -p 3000:3000 simple_search_microservice
+```
+
+Access the service at:
+```
+http://localhost:3000/health
+http://localhost:3000/docs (Swagger UI)
+```
+
+### 5️⃣ Run tests
 
 ```cmd
 npm test
@@ -105,6 +123,3 @@ npm test
 - For development, enable Swagger UI by setting `SWAGGER_ENABLED=true` in `.env`.
 
 ---
-
-
-
